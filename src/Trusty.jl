@@ -115,7 +115,7 @@ end
 Base.convert(::Type{StiffnessProblem}, truss::PlanarTruss) =
     StiffnessProblem(truss, constrain(stiffness(truss.topology), truss.constraints)...)
 
-SparseLoadMap{F<:Number} = Dict{Int,<:Union{Vector{F},Tuple{Vararg{F}}}}
+const SparseLoadMap{F<:Number} = Dict{Int,<:Union{Vector{F},Tuple{Vararg{F}}}}
 
 function loadvec(dofs, loads::L) where {L<:SparseLoadMap}
     noload = zeros(eltype(first(values(loads))), 2)
