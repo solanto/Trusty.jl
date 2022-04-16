@@ -11,9 +11,9 @@ struct Section
     area::Number
 end
 
-Member = Pair{Int,Pair{Section,Int}}
+const Member = Pair{Int,Pair{Section,Int}}
 
-Geometry{N<:Number} = Vector{<:Vector{N}}
+const Geometry{N<:Number} = Vector{<:Vector{N}}
 
 function trussgraph(memberpairs::Vector{Member}, vertexlocations::Geometry)
     edgesandsections = Dict(Edge(a => b) => s for (a, (s, b)) in memberpairs)
@@ -75,7 +75,7 @@ end
 
 stiffness(truss::MetaGraph) = sum(stiffness(truss, edge) for edge in edges(truss))
 
-ConstraintSet = NTuple{2,Vector{Int}}
+const ConstraintSet = NTuple{2,Vector{Int}}
 
 constrainedindices(constraints::ConstraintSet) =
     [componentindex(vertex, dimension)
@@ -133,7 +133,7 @@ function rawdisplacements(stiffness::Matrix{U}, loadvector::Vector{V}) where {U<
     inv(u) * rawdisplacements(ustrip.(u, stiffness), ustrip.(v, loadvector)) * v
 end
 
-SparseDisplacementMap = Dict{DOFComponent,<:Number}
+const SparseDisplacementMap = Dict{DOFComponent,<:Number}
 
 function dofdisplacements((; stiffness, freedofs)::StiffnessProblem, loads::L)::SparseDisplacementMap where {L<:SparseLoadMap}
     displacements = rawdisplacements(stiffness, loadvec(freedofs, loads))
