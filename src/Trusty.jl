@@ -1,6 +1,5 @@
 module Trusty
 
-
 using PaddedViews, Rotations, LinearAlgebra, Graphs, MetaGraphs, InvertedIndices, Unitful, SparseArrays, AngleBetweenVectors, Plots
 
 export Section, Truss, deform, strain, volume, DOFComponent
@@ -83,6 +82,15 @@ function trussgraph(memberpairs::Vector{Member}, vertexlocations::AbstractVertex
     graph
 end
 
+"""
+    DOFComponent
+
+Key for referring to a component of a DOF along some dimension.
+
+    DOFComponent(vertex::Int, dimension::Int)
+
+Construct `DOFComponent` representing freedom along `dimension` at `vertex`.
+"""
 struct DOFComponent
     vertex::Int
     dimension::Int
