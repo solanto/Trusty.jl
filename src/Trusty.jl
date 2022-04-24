@@ -138,7 +138,7 @@ componentindex(ndims, vertex::Int, dimension::Int) = ndims * (vertex - 1) + dime
 
 edgevec(truss::Truss, (; src, dst)::Edge) = location(truss, dst) - location(truss, src)
 
-const AbstractStiffnessMatrix = AbstractMatrix{<:Number}
+const AbstractStiffnessMatrix{T} = AbstractMatrix{T} where T<:Number
 
 """
 	aligndofs(ndims::Val{N}, dofs::AbstractMatrix, vector::Vector)
@@ -245,7 +245,7 @@ end
 
 rawdisplacements(stiffness::AbstractMatrix{<:Real}, loadvector::Vector) = stiffness \ loadvector
 
-function rawdisplacements(stiffness::AbstractStiffnessMatrix, loadvector::Vector)
+function rawdisplacements(stiffness::AbstractStiffnessMatrix{U}, loadvector::Vector{V}) where {U,V}
     u = unit(U)
     v = unit(V)
 
