@@ -6,7 +6,7 @@ Defining a truss is as easy as:
 
 ```julia
 Truss(1:2 .=> Section(29000000psi, 6inch^2) .=> 2:3,
-	  [0 1 2
+      [0 1 2
        0 1 0]ft,
       ([1, 3], [1, 3]))
 ```
