@@ -98,6 +98,17 @@ end
 
 abstract type Structure end
 
+"""
+    ConstraintSet
+
+A `Tuple` of truss constraints, with element n being a vector of vertices (`Int`s) constrained along dimension n.
+
+# Examples
+```julia
+julia> ([1, 3], [3]) isa ConstraintSet # vertices 1 & 3 constrained in x direction; vertex 1 constrained in y direction
+true
+```
+"""
 const ConstraintSet = Tuple{Vararg{Vector{Int}}}
 
 """
@@ -146,7 +157,7 @@ componentindex(ndims, vertex::Int, dimension::Int) = ndims * (vertex - 1) + dime
 
 edgevec(truss::Truss, (; src, dst)::Edge) = location(truss, dst) - location(truss, src)
 
-const AbstractStiffnessMatrix{T} = AbstractMatrix{T} where T<:Number
+const AbstractStiffnessMatrix{T} = AbstractMatrix{T} where {T<:Number}
 
 """
 	aligndofs(ndims::Val{N}, dofs::AbstractMatrix, vector::Vector)
