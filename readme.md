@@ -58,7 +58,7 @@ Currently, exported names are documented. You can access this documentation thro
   - [x] `stress`
   - [x] `volume`
 - Integration
-  - [x] Unitful
-  - [ ] Plots
+  - [x] [Unitful](https://painterqubits.github.io/Unitful.jl/stable/)
+  - [ ] [Plots](https://docs.juliaplots.org/stable/)
     - Plotting via `plottruss`, but should migrate to a real Plot recipe sometime in the future!
-
+  - [ ] [Documenter](https://juliadocs.github.io/Documenter.jl/stable/)
