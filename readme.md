@@ -1,17 +1,37 @@
 # Trusty
 
-Trusty aims to make basic deformation analyses of trusses subject to loads as convenient as possible. It even supports units via [Unitful](https://painterqubits.github.io/Unitful.jl/stable/)!
+Trusty aims to make basic deformation analyses of trusses subject to loads as convenient as possible. It even supports plotting via [Plots](https://docs.juliaplots.org/stable/) and units via [Unitful](https://painterqubits.github.io/Unitful.jl/stable/)!
 
 Defining a truss is as easy as:
 
 ```julia
-Truss(1:2 .=> Section(29000000psi, 6inch^2) .=> 2:3,
-      [0 1 2
-       0 1 0]ft,
-      ([1, 3], [1, 3]))
+🌈 =
+    Truss(1:2 .=> Section(29000000psi, 6inch^2) .=> 2:3, # members
+        [0 1 2
+        0 1 0]ft, # vertices
+        ([1, 3], [1, 3])) # constraints
 ```
 
+Deforming it:
+
+```julia
+🍭 = deform(🌈, Dict(2 => [30000000; 0]lbf))
+```
+
+And plotting it all:
+
+```julia
+let 🍓 = plottruss(ustrip(ft, 🌈))
+    plottruss!(🍓, ustrip(ft, 🍭))
+end
+```
+
+![Deformed truss plotted atop orignal truss. Deformed node 2 slightly righward of original node 2 due to load.](assets/example.svg)
+
+
 ## Installation
+
+In the REPL:
 
 ```julia
 ] add Trusty
@@ -19,5 +39,5 @@ Truss(1:2 .=> Section(29000000psi, 6inch^2) .=> 2:3,
 
 ## Documentation
 
-Currently, exported names are documented. You can access this documentation via your IDE or the `?` command in the REPL.
+Currently, exported names are documented. You can access this documentation through your editor or the `?` command in the REPL.
 
