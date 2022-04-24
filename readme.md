@@ -42,3 +42,23 @@ In the REPL:
 
 Currently, exported names are documented. You can access this documentation through your editor or the `?` command in the REPL.
 
+## Development progress
+
+- Planar (2D) trusses
+  - [x] Definition
+  - [x] Plotting
+  - [x] Analysis
+- $n$-dimensional trusses
+  - [x] Definition
+  - [x] Plotting
+    - 3D only
+  - [ ] Analysis
+    - Results currently incorrect :(
+- Convenience functions
+  - [x] `stress`
+  - [x] `volume`
+- Integration
+  - [x] Unitful
+  - [ ] Plots
+    - Plotting via `plottruss`, but should migrate to a real Plot recipe sometime in the future!
+
