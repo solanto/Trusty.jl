@@ -48,7 +48,7 @@ Currently, exported names are documented. You can access this documentation thro
   - [x] Definition
   - [x] Plotting
   - [x] Analysis
-- $n$-dimensional trusses
+- n-dimensional trusses
   - [x] Definition
   - [x] Plotting
     - 3D only
