@@ -7,6 +7,15 @@ export Section, Truss, deform, strain, volume, DOFComponent
 
 unitdofs(dimensions) = PaddedView(0, fill(1, (1, 1)), (dimensions, dimensions))
 
+"""
+    Section
+
+Section properties of a `Member`.
+
+    Section(elasticity::Number, area::Number)
+
+Construct `Section` object with `elasticity` and `area`.
+"""
 struct Section
     elasticity::Number
     area::Number
@@ -356,6 +365,8 @@ end
 	plottruss!(p::Plot, truss::Truss; kw...)
 
 Plot a `truss`, optionally atop an existing plot `p`.
+
+Only supports `truss`es with unitless vertex locations. If you use units via `Unitful` to define some truss `t`, decide which units `u` to plot in and use `ustrip(u, t)`.
 
 # Arguments
 - Trusty-specific:
