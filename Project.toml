@@ -1,7 +1,7 @@
 name = "Trusty"
 uuid = "8d423e50-a21a-41c9-877a-e99e491e0514"
 authors = ["Andrew Solanto <atsolanto@gmail.com>"]
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 AngleBetweenVectors = "ec570357-d46e-52ed-9726-18773498274d"
