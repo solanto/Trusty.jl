@@ -2,7 +2,8 @@
 
 Trusty aims to make basic deformation analyses of trusses subject to loads as convenient as possible. It even supports plotting via [Plots](https://docs.juliaplots.org/stable/) and units via [Unitful](https://painterqubits.github.io/Unitful.jl/stable/)!
 
-Defining a truss is as easy as:
+
+Working with a truss is as easy as defining it:
 
 ```julia
 🌈 =
